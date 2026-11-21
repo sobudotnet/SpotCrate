@@ -1,6 +1,6 @@
 ﻿# SpotCrate
 
-Spotify YouTube Resolver Using SpotifyAPI - Find your Spotify songs on YouTube instantly and download them with SpotCrate. Just drag a Spotify link in and boom, YouTube results.
+Spotify YouTube Resolver Using SpotifyAPI - Completely UI Based, NO CLI. Find your Spotify songs on YouTube instantly and download them with SpotCrate. Just drag a Spotify link in and boom, YouTube results.
 
 ## Getting Started (Super Easy)
 
