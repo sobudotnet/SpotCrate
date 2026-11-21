@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SpotYT</RootNamespace>
+    <RootNamespace>SpotCrate</RootNamespace>
     <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>spotyt.ico</ApplicationIcon>
-    <AssemblyName>SpotYT</AssemblyName>
+    <ApplicationIcon>spotcrate.ico</ApplicationIcon>
+    <AssemblyName>SpotCrate</AssemblyName>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishTrimmed>false</PublishTrimmed>
-    <PublishSingleFile>false</PublishSingleFile>
-    <IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
@@ -29,22 +29,16 @@
     <Delete Files="@(FilesToDelete)" />
   </Target>
 
-  <Target Name="OrganizeBuildOutput" AfterTargets="Build">
-    <ItemGroup>
-      <RuntimeDlls Include="$(OutputPath)*.dll" Exclude="$(OutputPath)SpotYT.dll" />
-      <ConfigFiles Include="$(OutputPath)*.config" />
-    </ItemGroup>
-    
-    <MakeDir Directories="$(OutputPath)res" Condition="!Exists('$(OutputPath)res')" />
-    <MakeDir Directories="$(OutputPath)cfg" Condition="!Exists('$(OutputPath)cfg')" />
-    
-    <Move SourceFiles="@(RuntimeDlls)" DestinationFolder="$(OutputPath)res" />
-    <Move SourceFiles="@(ConfigFiles)" DestinationFolder="$(OutputPath)cfg" />
-  </Target>
+  <ItemGroup>
+    <Content Include="spotcrate.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
-    <Content Include="spotyt.ico">
+    <Content Include="tools\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
 

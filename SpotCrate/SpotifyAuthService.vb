@@ -15,6 +15,10 @@ Public Class SpotifyAuthService
         Return _instance
     End Function
 
+    Public Shared Sub Reset()
+        _instance = Nothing
+    End Sub
+
     Public Shared Async Function AuthenticateAsync(clientId As String, clientSecret As String) As Task(Of SpotifyClient)
         Try
             Dim request = New ClientCredentialsRequest(clientId, clientSecret)
